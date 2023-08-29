@@ -5,15 +5,171 @@
     box-sizing: border-box;
 }
 
+input {
+    display: block;
+}
+
 html {
     font-size: 62.5%;
 }
 
 body {
     font-size: 1.6rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: grid;
+    grid-template-rows: min-content auto min-content;
+    min-height: 100vh;
+}
+
+.vanish {
+    opacity: 0;
 }
 
 /* header */
 header {
-        
+   background-color: #222831;
+   padding: 3rem 8rem;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;     
+}
+
+header button {
+    background-color: #00ADB5;
+    border-radius: 20px;
+    color: white;
+    font-size: 1.6rem;
+    font-weight: bold;
+    padding: 1em 2em;
+    border: none;
+}
+
+header button:hover {
+    filter: brightness(90%);
+}
+
+header div {
+    font-size: 4rem;
+    color: white;
+    font-weight: bold;    
+}
+
+/* footer */
+footer {
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+    color: black;
+    background-color: whitesmoke;
+}
+
+footer a {    
+    text-decoration: none;
+    color: black;
+    font-size: 1.6rem;
+}
+
+/* main */
+main {
+    background-color: #f0eef1;
+}
+
+main .dialog-button {
+    padding: 2rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+main #show-modal {
+    border: none;
+    border-radius: 15px;
+    padding: 1rem 2rem;
+    color: black;
+    font-size: 2.4rem;
+    font-weight: bolder;
+}
+
+main #show-modal:hover {
+    filter: brightness(90%);
+}
+main #show-modal:focus {
+    filter: brightness(90%);
+    border: none;
+}
+
+:modal {
+    margin: auto auto;
+    min-height: ;
+    border: none;
+    border-radius: 5px;
+    padding: 1rem;
+    background-color: #222831;
+}
+
+#add-book-dialog > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+#add-book-dialog > div > div:first-child {
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: bold;    
+}
+
+#modal-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#modal-form input {    
+    background-color: #f0eef1;
+    border: 2px solid #00ADB5;
+    font-size: 1.6rem;
+    font-weight: bold;
+    padding: .5em;
+    border-radius: 5px;
+    height: 3.2rem;
+    margin: 1rem 0;
+}
+
+#modal-form input:focus {
+    outline: none;
+    border-color: #00ADB5;
+}
+
+#modal-form p {
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: white;
+    display: flex;
+    align-items: center;
+    margin-top: -0.5rem;
+}
+
+#modal-form p > input {
+    background-color: #00ADB5;
+    margin-left: 1rem;
+    width: 2ch;
+    height: 2ch;
+}
+
+#modal-form button {
+    padding: .5em 1em;
+    font-size: 1.6rem;
+    background-color: #00ADB5;
+    border: none;
+    border-radius: 10px;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+#modal-form button:hover {
+    filter: brightness(90%);
 }

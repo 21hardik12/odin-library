@@ -12,7 +12,24 @@
     <div>Odin Library</div>
     <button>Login</button>
   </header>
-  <main></main>
-  <footer></footer>
+  <main>
+    <dialog id="add-book-dialog">
+      <div>
+        <div>Add new book</div>
+        <form id="modal-form">
+          <input type="text" placeholder="Title">
+          <input type="text" placeholder="Author">
+          <input type="number" placeholder="Pages">
+          <p>Have you read it? <input type="checkbox"></p>
+          <button id="submit-book-button" value="default">Submit</button>
+        </form>
+      </div>
+    </dialog>
+    <div class="dialog-button"><button id="show-modal">+ Add Book</button></div>
+    <div class="books-grid"></div>
+  </main>
+  <footer>
+    <div>Copyright© 2023 <a href="http://github.com/21hardik12">21hardik12</a></div></div>
+  </footer>
 </body>
 </html>
