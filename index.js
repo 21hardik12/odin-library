@@ -12,6 +12,7 @@ const addBookBtn = document.querySelector('#show-modal');
 const addBookModal = document.querySelector('#add-book-dialog');
 const modalForm = document.querySelector('#modal-form');
 const submitBookBtn = modalForm.querySelector('#submit-book-button');
+const bookGrid = document.querySelector('.books-grid');
 
 addBookBtn.addEventListener('click', e => {
     addBookModal.showModal();
@@ -72,5 +73,61 @@ submitBookBtn.addEventListener('click', e => {
 
 // Library logic
 function addBookToLibrary(title, author, pages, read) {
-    library.push(new Book(highestBookId++, title, author, pages, read));    
+    const book = new Book(highestBookId++, title, author, pages, read);
+    library.push(book);
+    displayBook(book);    
 }
+
+function removeBookFromLibrary(element) {
+    const bookToRemove = library.findIndex(book => book.id === element.book.id);
+    library.splice(bookToRemove, 1);
+    bookGrid.removeChild(element);
+}
+
+function displayBook(book) {
+    const cardElement = document.createElement('div');
+    const titleElement = document.createElement('div');
+    const authorElement = document.createElement('div');
+    const pagesElement = document.createElement('div');
+    const readornotButton = document.createElement('button');
+    const removeButton = document.createElement('button');
+
+    cardElement.book = book;
+
+    titleElement.textContent = `"${book.title}"`;
+    authorElement.textContent = `By ${book.author}`;
+    pagesElement.textContent = `${book.pages} pages`;    
+    readornotButton.classList.add('readornotBtn');
+    readornotButton.textContent = book.read ? 'Read' : 'Not read';
+    if (book.read) readornotButton.classList.add('read');
+    removeButton.textContent = 'Remove';
+    removeButton.classList.add('removeBtn');
+
+    removeButton.addEventListener('click', function () {
+        removeBookFromLibrary(this.parentElement);
+    });
+    
+    cardElement.appendChild(titleElement);
+    cardElement.appendChild(authorElement);
+    cardElement.appendChild(pagesElement);
+    cardElement.appendChild(readornotButton);
+    cardElement.appendChild(removeButton);
+    
+    cardElement.classList.add('book-card');
+    
+    readornotButton.addEventListener('click', e => {
+        console.log(cardElement.book);
+        readornotButton.classList.toggle('read');
+        if (readornotButton.classList.contains('read')) {
+             readornotButton.textContent = 'Read';
+             cardElement.book.read = true;
+        } else {
+            readornotButton.textContent = 'Not read'
+            cardElement.book.read = false;
+        };
+        
+        console.log(cardElement.book);
+    });
+    bookGrid.appendChild(cardElement);
+}
+
